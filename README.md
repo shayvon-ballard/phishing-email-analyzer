@@ -5,7 +5,7 @@
 A Python-based phishing email analyzer that parses raw email headers, detects suspicious indicators, flags malicious URLs, and assigns a phishing risk score through a Flask web dashboard.
 
 ## Screenshots
-*(add screenshot here)*
+![Dashboard](screenshots/dashboard.jpg)
 
 ## Features
 - Email header parsing and analysis
