@@ -118,6 +118,17 @@ The running total is capped at 100 and mapped to a risk level:
 
 Because flags are additive, a single email accumulates risk from independent signals — Sample 1 above scores 95 from three header flags (75) plus one URL flag (20).
 
+
+### Score Breakdown by Sample
+
+| Sample | Flags triggered | Math | Verdict |
+|---|---|---|---|
+| 1 — PayPal spoof | Reply-To mismatch (25) + Return-Path mismatch (25) + urgency keyword "URGENT" (25) + IP-address URL (20) | 95 | **HIGH** |
+| 2 — IT password reset | Reply-To mismatch (25) + URL shortener (20) | 45 | **MEDIUM** |
+| 3 — Meeting notes | None — sender, Reply-To, and Return-Path all match; no links; neutral subject | 0 | **LOW** |
+
+Each domain in the samples was chosen to trigger (or deliberately not trigger) a specific detector — `paypa1-secure.com` models a typosquatted brand, the mismatched `.ru` reply domains model reply-diversion, and Sample 3's fully-aligned headers demonstrate that legitimate mail passes clean. Full rationale for every fabricated indicator is in [Sample Data & Attribution](#sample-data--attribution).
+
 ## CSV Export
 
 Findings can be exported to CSV from the results screen for record-keeping or downstream analysis. Exports are written to `reports/output/`.
